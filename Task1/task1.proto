@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+option go_package="github.com/kiran-blockchain/netxd-go-advanced/grpc-demo/helloworld";
+
+package Task1;
+
+service Customer {
+    rpc InsertCustomer(CustDetails) returns (Response);
+    rpc GetCustomerDetails(Empty) returns (CustomerDetails);
+}
+
+message CustDetails {
+    string Name=1;
+    int64 Balance=2;
+    string BankId=3;
+    string Accountid = 4;
+    
+}
+
+message Response {
+    string accountid = 1;
+}
+
+message Empty {
+}
+
+message CustomerDetails {
+    repeated CustDetails customers=1;
+}
+
